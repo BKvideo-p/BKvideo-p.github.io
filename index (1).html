@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<!--
+  김보경 영상 포트폴리오 · 수정 가이드
+  · 연락처      : 아래 <script> 의 CONTACT
+  · 프로젝트    : PROJECTS — yt(유튜브 영상 ID) 또는 video(mp4 경로), 썸네일은 folder/thumb.jpg
+  · 아카이브    : ARCHIVE  — 작업물을 한 줄씩 추가
+  · 프로필 사진 : images/profile.jpg  /  
+-->
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>김보경 영상 포트폴리오</title>
+<meta name="description" content="영상 편집 · 촬영 · 모션그래픽 · 쇼핑라이브 — 김보경 포트폴리오 2026">
+<meta name="theme-color" content="#07111B">
+<link rel="stylesheet" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+/* VOICE: 차분하고 단단한 다크 톤, 작업물이 주인공
+   IDEA: 카메라 뷰파인더 — REC 표시, 타임코드, 모서리 브래킷이 사이트 전체의 장식 언어
+   PICTURE: 첫 화면 오른쪽의 쇼릴 뷰파인더(쇼릴 영상이 그 안에서 재생)
+   COLOUR and TYPE: 네이비 #07111B 바탕, 하늘색 #5AABEA 포인트 / Pretendard(없으면 Noto Sans KR)
+   LAYOUT: 좌측 정렬 히어로, 스킬 게이지, 탭형 이력, 지그재그 프로젝트, 필터형 아카이브 */
+:root{
+  --bg:#07111B;--deep:#050C14;--card:rgba(255,255,255,.035);--card-h:rgba(255,255,255,.06);
+  --accent:#5AABEA;--soft:#B5DAF6;--dim:#2F6E9E;--rec:#FF5A4E;
+  --white:#fff;--muted:rgba(255,255,255,.6);--muted2:rgba(255,255,255,.4);
+  --line:rgba(255,255,255,.12);--line2:rgba(255,255,255,.07);
+  --maxw:1240px;--pad:40px;--ease:cubic-bezier(.22,.61,.36,1)
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;min-width:0}
+html{scroll-behavior:smooth;scroll-padding-top:76px}
+body{background:var(--bg);color:var(--white);font-family:'Pretendard Variable',Pretendard,'Noto Sans KR',-apple-system,'Apple SD Gothic Neo','Malgun Gothic',sans-serif;
+  -webkit-font-smoothing:antialiased;line-height:1.65;word-break:keep-all;overflow-wrap:break-word;overflow-x:clip}
+body.lock{overflow:hidden}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+::selection{background:var(--accent);color:#04101A}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 var(--pad)}
+.sec{padding:120px 0;position:relative}
+.label{display:inline-flex;align-items:center;gap:10px;font-size:12px;font-weight:700;letter-spacing:.2em;color:var(--accent);text-transform:uppercase}
+.label::before{content:'';width:22px;height:1px;background:var(--accent)}
+.sec-head{display:flex;align-items:flex-end;justify-content:space-between;gap:40px;margin-bottom:56px;flex-wrap:wrap}
+.sec-title{font-size:clamp(38px,5.4vw,64px);font-weight:800;letter-spacing:-.02em;line-height:1;margin-top:16px}
+.sec-desc{color:var(--muted);font-size:15px;max-width:440px}
+.btn{display:inline-flex;align-items:center;gap:9px;min-height:46px;padding:12px 24px;border-radius:100px;border:1px solid var(--accent);color:var(--accent);font-size:14px;font-weight:700;transition:background .3s var(--ease),color .3s var(--ease),border-color .3s var(--ease),transform .3s var(--ease)}
+.btn:hover{background:#fff;border-color:#fff;color:#0A0A0A;transform:translateY(-2px)}
+.btn.fill{background:var(--accent);color:#04101A}
+.btn.fill:hover{background:#fff}
+.btn svg{width:16px;height:16px;flex:none}
+
+/* HEADER */
+header{position:fixed;top:0;left:0;right:0;z-index:80;transition:background .4s var(--ease),border-color .4s;border-bottom:1px solid transparent}
+header.stuck{background:rgba(5,12,20,.82);backdrop-filter:blur(16px);border-bottom-color:var(--line2)}
+.nav{max-width:var(--maxw);margin:0 auto;padding:18px var(--pad);display:flex;align-items:center;gap:28px}
+.brand{display:flex;align-items:center;gap:10px;font-size:13px;font-weight:800;letter-spacing:.14em}
+.brand i{width:8px;height:8px;border-radius:50%;background:var(--rec);animation:blink 1.4s steps(2) infinite}
+@keyframes blink{50%{opacity:.2}}
+.nav-links{margin-left:auto;display:flex;gap:6px}
+.nav-links a{font-size:13px;font-weight:600;color:var(--muted);padding:10px 14px;border-radius:100px;transition:color .25s,background .25s}
+.nav-links a:hover{color:#fff;background:var(--card-h)}
+.nav-cta{padding:10px 20px;min-height:42px;font-size:12.5px}
+.nav-toggle{display:none;margin-left:auto;font-size:12px;font-weight:700;letter-spacing:.16em;color:var(--muted);min-height:44px;padding:0 6px}
+
+/* HERO */
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;padding:130px 0 90px;overflow:hidden;
+  background:radial-gradient(50% 60% at 85% 40%,rgba(90,171,234,.16),transparent 70%),radial-gradient(40% 50% at 10% 90%,rgba(47,110,158,.22),transparent 70%),var(--bg)}
+.hero::after{content:'';position:absolute;inset:0;pointer-events:none;opacity:.05;
+  background-image:linear-gradient(rgba(255,255,255,.5) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.5) 1px,transparent 1px);background-size:80px 80px;
+  -webkit-mask-image:radial-gradient(70% 70% at 60% 40%,#000,transparent);mask-image:radial-gradient(70% 70% at 60% 40%,#000,transparent)}
+.hero-grid{position:relative;z-index:2;width:100%}
+.hero-k{font-size:12px;font-weight:700;letter-spacing:.2em;color:var(--muted)}
+.hero-k b{color:var(--rec)}
+.hero h1{font-size:clamp(56px,11vw,150px);font-weight:800;line-height:.95;letter-spacing:-.01em;margin:26px 0 28px}
+.hero h1 span{display:block}
+.hero h1 .sl{display:inline;color:var(--accent);font-weight:300}
+.hero-intro{font-size:18px;color:var(--muted);line-height:1.8;max-width:30em}
+.hero-intro strong{color:#fff}
+.hero-cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:36px}
+.vf{position:relative;aspect-ratio:16/10;border-radius:6px;overflow:hidden;background:
+  radial-gradient(60% 70% at 70% 30%,rgba(90,171,234,.35),transparent 70%),linear-gradient(150deg,#123552,#07111B 75%);
+  box-shadow:0 40px 90px rgba(0,0,0,.5),0 0 0 1px var(--line)}
+.vf video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1s var(--ease)}
+.vf video.on{opacity:1}
+.vf-ui{position:absolute;inset:18px;pointer-events:none;font-size:11px;font-weight:700;letter-spacing:.12em;color:rgba(255,255,255,.85);text-shadow:0 1px 8px rgba(0,0,0,.6)}
+.vf-c{position:absolute;width:26px;height:26px;border:2px solid rgba(255,255,255,.85)}
+.vf-c.tl{top:0;left:0;border-right:0;border-bottom:0}.vf-c.tr{top:0;right:0;border-left:0;border-bottom:0}
+.vf-c.bl{bottom:0;left:0;border-right:0;border-top:0}.vf-c.br{bottom:0;right:0;border-left:0;border-top:0}
+.vf-rec{position:absolute;top:8px;left:40px;display:flex;align-items:center;gap:7px}
+.vf-rec i{width:9px;height:9px;border-radius:50%;background:var(--rec);animation:blink 1.4s steps(2) infinite}
+.vf-fmt{position:absolute;top:8px;right:40px}
+.vf-tc{position:absolute;bottom:8px;left:40px;font-variant-numeric:tabular-nums}
+.vf-bat{position:absolute;bottom:8px;right:40px;display:flex;align-items:center;gap:6px}
+.vf-bat span{width:22px;height:11px;border:1.5px solid currentColor;border-radius:2px;position:relative}
+.vf-bat span::after{content:'';position:absolute;inset:1.5px 4px 1.5px 1.5px;background:currentColor}
+.vf-x{position:absolute;left:50%;top:50%;width:34px;height:34px;margin:-17px 0 0 -17px}
+.vf-x::before,.vf-x::after{content:'';position:absolute;background:rgba(255,255,255,.7)}
+.vf-x::before{left:50%;top:0;bottom:0;width:1px}.vf-x::after{top:50%;left:0;right:0;height:1px}
+.vf-label{position:absolute;left:50%;bottom:22%;transform:translateX(-50%);font-size:clamp(16px,2.2vw,24px);font-weight:800;letter-spacing:.3em;opacity:.9;white-space:nowrap}
+.hero-scroll{position:absolute;left:var(--pad);bottom:30px;z-index:2;font-size:10.5px;font-weight:700;letter-spacing:.24em;color:var(--muted2);display:flex;align-items:center;gap:12px}
+.hero-scroll i{display:block;width:46px;height:1px;background:linear-gradient(90deg,var(--accent),transparent)}
+
+/* STRIP */
+.strip{border-top:1px solid var(--line2);border-bottom:1px solid var(--line2);background:var(--deep);overflow:hidden;white-space:nowrap;padding:18px 0}
+.strip div{display:inline-flex;gap:46px;padding-left:46px;font-size:15px;font-weight:700;letter-spacing:.14em;color:var(--muted2);animation:mq 38s linear infinite}
+.strip b{color:var(--accent);font-weight:700}
+@keyframes mq{to{transform:translateX(-50%)}}
+
+/* PROFILE */
+.prof{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:72px;align-items:start}
+.id-card{border:1px solid var(--line);border-radius:6px;background:var(--card);padding:28px;position:sticky;top:100px}
+.photo{position:relative;aspect-ratio:4/5;border-radius:4px;overflow:hidden;background:linear-gradient(160deg,rgba(90,171,234,.12),rgba(255,255,255,.02))}
+.photo .slot{position:absolute;inset:0;display:grid;place-content:center}
+.photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.photo .vf-c{width:18px;height:18px;border-color:rgba(255,255,255,.5)}
+.photo .vf-c.tl{top:12px;left:12px}.photo .vf-c.tr{top:12px;right:12px}.photo .vf-c.bl{bottom:12px;left:12px}.photo .vf-c.br{bottom:12px;right:12px}
+.slot{text-align:center;color:var(--muted2);font-size:11.5px;letter-spacing:.12em;font-weight:600;line-height:1.9}
+.slot b{display:block;color:rgba(255,255,255,.28);font-size:10.5px;letter-spacing:.04em;font-weight:500}
+.id-name{display:flex;align-items:baseline;gap:12px;margin-top:24px}
+.id-name b{font-size:28px;font-weight:800}
+.id-name span{color:var(--muted);font-size:14px}
+.id-meta{margin-top:14px;display:grid;grid-template-columns:auto 1fr;gap:6px 16px;font-size:14px}
+.id-meta dt{color:var(--accent);font-size:11px;font-weight:800;letter-spacing:.16em;padding-top:3px}
+.id-meta dd{color:var(--muted)}
+.id-meta a:hover{color:var(--accent)}
+.prof-lead{font-size:clamp(22px,2.6vw,30px);font-weight:700;line-height:1.5;letter-spacing:-.01em;margin:20px 0 22px}
+.prof-lead em{font-style:normal;color:var(--accent)}
+.prof-sub{color:var(--muted);font-size:15.5px;line-height:1.9}
+.blk{margin-top:52px}
+.blk>.label{margin-bottom:22px}
+.skills{display:grid;gap:12px}
+.sk-row{display:flex;align-items:center;gap:18px;padding-bottom:12px;border-bottom:1px solid var(--line2)}
+.sk-k{flex:none;width:40px;font-size:12.5px;font-weight:800;color:var(--accent)}
+.sk-list{display:flex;flex-wrap:wrap;gap:8px}
+.sk-list span{padding:7px 14px;border-radius:100px;font-size:13.5px;font-weight:600;border:1px solid var(--line);color:#fff}
+.sk-row+.sk-row .sk-list span{color:var(--muted)}
+.chans{display:flex;flex-wrap:wrap;gap:8px}
+.chans span{padding:9px 16px;border-radius:100px;border:1px solid var(--line);font-size:13.5px;color:var(--soft)}
+
+/* RESUME TABS */
+.resume{margin-top:110px;border:1px solid var(--line);border-radius:6px;background:var(--card);overflow:hidden}
+.tabs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-bottom:1px solid var(--line);overflow:hidden}
+.tab{display:flex;align-items:center;gap:12px;padding:24px 28px;min-height:44px;text-align:left;color:var(--muted);border-right:1px solid var(--line2);transition:color .3s,background .3s;position:relative}
+.tab:last-child{border-right:0}
+.tab b{font-size:17px;font-weight:800}
+.tab em{font-style:normal;font-size:11px;font-weight:700;letter-spacing:.14em;color:var(--muted2);text-transform:uppercase}
+.tab::after{content:'';position:absolute;left:0;right:0;bottom:-1px;height:2px;background:var(--accent);transform:scaleX(0);transition:transform .4s var(--ease)}
+.tab[aria-selected=true]{color:#fff;background:rgba(90,171,234,.06)}
+.tab[aria-selected=true]::after{transform:none}
+.tab:hover{color:#fff}
+.panel{padding:44px 48px 52px}
+.panel[hidden]{display:none}
+.panel{animation:rise .45s var(--ease)}
+.doc{max-width:56em}
+.doc p{font-size:15px;color:var(--muted);line-height:2;margin-bottom:1.1em}
+.doc strong{color:#fff;font-weight:700}
+.doc-q{font-size:18px;font-weight:800;color:#fff;line-height:1.5;margin:2.4em 0 1em;display:flex;gap:14px;align-items:baseline}
+.doc-q span{flex:none;font-size:11px;font-weight:800;letter-spacing:.18em;color:var(--accent)}
+.doc>.doc-q:first-child{margin-top:0}
+.skl{list-style:none;display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:10px}
+.skl li{font-size:14.5px;color:var(--soft);padding:14px 16px;border:1px solid var(--line2);border-radius:4px;background:rgba(90,171,234,.04)}
+.tl{position:relative;padding-left:28px}
+.tl::before{content:'';position:absolute;left:5px;top:8px;bottom:8px;width:1px;background:var(--line)}
+.tl-i{position:relative;display:grid;grid-template-columns:190px minmax(0,1fr);gap:24px;padding:0 0 34px}
+.tl-i:last-child{padding-bottom:0}
+.tl-i::before{content:'';position:absolute;left:-28px;top:7px;width:11px;height:11px;border-radius:50%;border:2px solid var(--accent);background:var(--bg)}
+.tl-i.now::before{background:var(--accent);box-shadow:0 0 0 6px rgba(90,171,234,.18)}
+.tl-d{font-size:14px;font-weight:700;white-space:nowrap}
+.tl-d small{display:block;font-size:12.5px;font-weight:600;color:var(--accent);margin-top:2px}
+.tl-c{font-size:17px;font-weight:800;line-height:1.5}
+.tl-c em{font-style:normal;font-size:13.5px;font-weight:500;color:var(--muted);margin-left:8px}
+.tl-x{font-size:14.5px;color:var(--muted);line-height:1.85;margin-top:6px}
+.sum{font-size:14px;color:var(--muted);margin-bottom:28px}
+.sum strong{color:var(--accent);font-size:20px;margin-left:6px}
+.edu{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:48px}
+.lic{display:flex;justify-content:space-between;gap:16px;padding:16px 0;border-bottom:1px solid var(--line2);font-size:15px}
+.lic b{font-weight:700}
+.lic span{color:var(--muted2);font-size:13px;white-space:nowrap}
+.lic small{display:block;color:var(--muted);font-size:13px;margin-top:2px}
+
+/* PROJECTS */
+.proj{display:grid;gap:90px}
+.pj{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:56px;align-items:center}
+.pj:nth-child(even){grid-template-columns:minmax(0,1fr) minmax(0,1.25fr)}
+.pj:nth-child(even) .pj-media{order:2}
+.pj-media{position:relative;display:block;width:100%;aspect-ratio:16/9;border-radius:6px;overflow:hidden;border:1px solid var(--line);
+  background:linear-gradient(140deg,rgba(90,171,234,.12),rgba(255,255,255,.015))}
+.pj-media img{width:100%;height:100%;object-fit:cover;transition:transform .7s var(--ease)}
+.pj-media:hover img{transform:scale(1.04)}
+.pj-media .slot{position:absolute;inset:auto 0 16px;display:none;place-content:center}
+.play{position:absolute;left:50%;top:50%;width:74px;height:74px;margin:-37px 0 0 -37px;border-radius:50%;display:grid;place-items:center;
+  background:rgba(5,12,20,.55);backdrop-filter:blur(6px);border:1px solid rgba(90,171,234,.6);color:var(--accent);transition:transform .4s var(--ease),background .4s}
+.play svg{width:22px;height:22px;margin-left:3px}
+.pj-media:hover .play{transform:scale(1.1);background:var(--accent);color:#04101A}
+.pj-fmt{position:absolute;left:16px;top:14px;font-size:11px;font-weight:700;letter-spacing:.12em;padding:5px 10px;border-radius:100px;background:rgba(5,12,20,.7);border:1px solid var(--line)}
+.pj-no{font-size:72px;font-weight:800;line-height:1;color:transparent;-webkit-text-stroke:1px rgba(90,171,234,.55)}
+.pj-t{font-size:30px;font-weight:800;letter-spacing:-.01em;margin:14px 0 6px}
+.pj-s{font-size:14.5px;font-weight:600;color:var(--soft)}
+.pj-l{list-style:none;margin:22px 0;border-top:1px solid var(--line2)}
+.pj-l li{font-size:14.5px;color:var(--muted);padding:11px 0;border-bottom:1px solid var(--line2);display:flex;gap:12px}
+.pj-l li::before{content:'';flex:none;width:5px;height:5px;border-radius:50%;background:var(--accent);margin-top:.7em}
+.pj-cat{margin:22px 0;border-top:1px solid var(--line2)}
+.pj-cat>div{padding:14px 0;border-bottom:1px solid var(--line2)}
+.pj-cat b{display:block;font-size:17px;font-weight:700;color:#fff}
+.pj-cat p{font-size:14.5px;color:var(--muted);margin-top:3px;white-space:pre-line}
+
+/* CHANNEL */
+.channel{background:linear-gradient(180deg,var(--bg),#0A1828 50%,var(--bg))}
+.ch-sub{color:var(--muted);font-size:15px;text-align:right;line-height:1.8}
+.ch-hero{padding:10px 0 46px;border-bottom:1px solid var(--line)}
+.ch-big{display:flex;align-items:baseline;gap:clamp(14px,2.4vw,32px);flex-wrap:wrap;font-weight:800;line-height:1;letter-spacing:-.03em;font-size:clamp(56px,10vw,140px)}
+.ch-big span{color:transparent;-webkit-text-stroke:1.5px rgba(255,255,255,.35)}
+.ch-big i{font-style:normal;color:var(--accent);font-weight:300;font-size:.6em}
+.ch-big b{color:#fff;font-variant-numeric:tabular-nums}
+.ch-cap{margin-top:22px;font-size:clamp(17px,1.8vw,21px);color:var(--muted)}
+.ch-cap strong{color:var(--accent)}
+.ch-stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-bottom:1px solid var(--line)}
+.ch-stat{padding:34px 24px 34px 0;border-right:1px solid var(--line2);margin-right:24px}
+.ch-stat:last-child{border-right:0;margin-right:0}
+.ch-stat b{display:block;font-size:clamp(34px,3.6vw,48px);font-weight:800;letter-spacing:-.02em;line-height:1.05;color:#fff;white-space:nowrap}
+.ch-stat b small{font-size:.5em;color:var(--accent);margin-left:2px}
+.ch-stat p{font-size:14.5px;color:#fff;font-weight:600;margin-top:10px}
+.ch-stat span{display:block;font-size:13px;color:var(--muted2);margin-top:2px}
+.ch-grid{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:24px;margin-top:56px}
+.ch-card{border:1px solid var(--line);border-radius:6px;background:var(--card);padding:30px 30px 26px}
+.ch-h{font-size:20px;font-weight:800;margin:12px 0 26px}
+.ch-bars{display:grid;gap:14px}
+.cb{display:grid;grid-template-columns:72px minmax(0,1fr) 64px;align-items:center;gap:14px;font-size:13.5px}
+.cb-d{color:var(--muted);font-variant-numeric:tabular-nums;white-space:nowrap}
+.cb-t{height:26px;border-radius:4px;background:var(--line2);overflow:hidden}
+.cb-t i{display:block;height:100%;width:0;border-radius:4px;background:linear-gradient(90deg,var(--dim),var(--accent));transition:width 1.2s var(--ease)}
+.in .cb-t i{width:var(--w)}
+.cb.now .cb-t i{background:linear-gradient(90deg,var(--accent),#CFE7FA)}
+.cb-v{text-align:right;font-weight:800;white-space:nowrap}
+.ch-note{font-size:12px;color:var(--muted2);margin-top:18px}
+.ch-tl{list-style:none;position:relative;padding-left:24px}
+.ch-tl::before{content:'';position:absolute;left:4px;top:8px;bottom:8px;width:1px;background:var(--line)}
+.ch-tl li{position:relative;padding-bottom:20px}
+.ch-tl li:last-child{padding-bottom:0}
+.ch-tl li::before{content:'';position:absolute;left:-24px;top:6px;width:9px;height:9px;border-radius:50%;border:2px solid var(--accent);background:var(--bg)}
+.ch-tl li:last-child::before{background:var(--accent);box-shadow:0 0 0 5px rgba(90,171,234,.18)}
+.ch-tl b{display:block;font-size:12.5px;color:var(--accent);font-weight:800;letter-spacing:.06em}
+.ch-tl p{font-size:15px;color:#fff;font-weight:600;margin-top:2px;line-height:1.55}
+.ch-tl span{display:block;font-size:13.5px;color:var(--muted);font-weight:400;margin-top:2px}
+.ch-role{margin:56px 0}
+.ch-cat{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0 32px;border-top:0;margin:16px 0 0}
+.ch-cat>div{border-top:1px solid var(--line2)}
+.ch-vids{display:grid;grid-template-columns:repeat(3,minmax(0,260px));gap:20px;margin-top:18px;align-items:start}
+.ch-v{text-align:left;display:block}
+.ch-vt{position:relative;display:block;aspect-ratio:9/16;border-radius:8px;overflow:hidden;border:1px solid var(--line);
+  background:linear-gradient(160deg,rgba(90,171,234,.18),rgba(255,255,255,.02));transition:border-color .4s,transform .4s var(--ease)}
+.ch-vt img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.ch-vt iframe,.ch-vt video{position:absolute;inset:0;width:100%;height:100%;border:0;object-fit:cover;pointer-events:none;z-index:1}
+.ch-vt .views,.ch-vt .play{z-index:2}
+.ch-vt.live .play{opacity:0;transition:opacity .3s}
+.ch-v:hover .ch-vt.live .play{opacity:1}
+.ch-v:hover .ch-vt{border-color:rgba(90,171,234,.6);transform:translateY(-4px)}
+.ch-vt .views{position:absolute;left:12px;top:12px;font-size:12.5px;font-weight:800;padding:5px 11px;border-radius:100px;background:var(--accent);color:#04101A}
+.ch-vt .play{width:56px;height:56px;margin:-28px 0 0 -28px}
+.ch-vt .play svg{width:18px;height:18px}
+.ch-v:hover .play{background:var(--accent);color:#04101A}
+.ch-vn{display:block;font-size:15px;font-weight:700;margin-top:12px}
+@media (max-width:1080px){.ch-stats{grid-template-columns:repeat(2,minmax(0,1fr))}.ch-stat:nth-child(2){border-right:0;margin-right:0}.ch-stat:nth-child(-n+2){border-bottom:1px solid var(--line2)}
+  .ch-grid{grid-template-columns:minmax(0,1fr)}.ch-cat{grid-template-columns:minmax(0,1fr)}}
+@media (max-width:860px){.ch-sub{text-align:left}.ch-vids{grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}.ch-vt .views{left:6px;top:6px;font-size:10.5px;padding:3px 8px}.ch-vt .play{width:40px;height:40px;margin:-20px 0 0 -20px}.ch-vn{font-size:12.5px}.ch-card{padding:24px 20px}}
+@media (max-width:600px){.ch-stats{grid-template-columns:minmax(0,1fr)}.ch-stat{border-right:0;margin-right:0;border-bottom:1px solid var(--line2);padding:24px 0}.ch-stat:last-child{border-bottom:0}.cb{grid-template-columns:62px minmax(0,1fr) 52px;gap:10px}}
+
+/* ARCHIVE */
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:34px}
+.filters button{min-height:42px;padding:9px 18px;border-radius:100px;border:1px solid var(--line);font-size:14px;font-weight:600;color:var(--muted);transition:all .3s var(--ease)}
+.filters button span{font-size:12px;color:var(--muted2);margin-left:6px}
+.filters button[aria-pressed=true]{background:var(--accent);border-color:var(--accent);color:#04101A}
+.filters button[aria-pressed=true] span{color:#04101A}
+.masonry{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:18px;align-items:start}
+.gx{display:block;width:100%;text-align:left;border:1px solid var(--line);border-radius:6px;overflow:hidden;background:var(--card);transition:border-color .4s,transform .4s var(--ease);animation:rise .45s var(--ease) both}
+.gx:hover{border-color:rgba(90,171,234,.55);transform:translateY(-3px)}
+.gx-t{position:relative;aspect-ratio:16/9;background:linear-gradient(150deg,rgba(90,171,234,.1),rgba(255,255,255,.015));display:grid;place-items:center}
+.gx-t.r-v{aspect-ratio:9/16}.gx-t.r-pg{aspect-ratio:3/5}.gx-t.r-p{aspect-ratio:3/4}.gx-t.r-s{aspect-ratio:1}
+.gx-t img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.gx-t .ico{position:absolute;right:12px;bottom:12px;width:36px;height:36px;border-radius:50%;display:grid;place-items:center;background:rgba(5,12,20,.65);border:1px solid rgba(90,171,234,.5);color:var(--accent)}
+.gx-t .ico svg{width:14px;height:14px}
+.gx-c{padding:14px 16px 16px}
+.gx-m{font-size:11px;font-weight:800;letter-spacing:.12em;color:var(--accent);display:flex;gap:8px}
+.gx-m span{color:var(--muted2);font-weight:600}
+.gx-n{font-size:15px;font-weight:700;margin-top:6px;line-height:1.45}
+.gx-d{font-size:12.5px;color:var(--muted2);margin-top:3px}
+.note{font-size:13px;color:var(--muted2);margin-top:10px}
+
+/* CONTACT */
+.contact{background:linear-gradient(180deg,var(--bg),#0B1F33)}
+.ct{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:64px;align-items:end}
+.ct h2{font-size:clamp(46px,7vw,92px);font-weight:800;line-height:.98;letter-spacing:-.02em;margin:18px 0 24px}
+.ct h2 em{font-style:normal;color:var(--accent)}
+.ct p{color:var(--muted);font-size:15.5px;max-width:30em;margin-bottom:32px}
+.ct-list{border-top:1px solid var(--line)}
+.ct-row{display:flex;align-items:center;gap:16px;padding:22px 4px;border-bottom:1px solid var(--line)}
+.ct-k{width:72px;flex:none;font-size:11px;font-weight:800;letter-spacing:.18em;color:var(--accent)}
+.ct-v{font-size:18px;font-weight:700;overflow-wrap:anywhere}
+.ct-v.s{font-size:15px;font-weight:600;color:var(--soft);display:flex;align-items:center;gap:10px}
+.dot{width:9px;height:9px;border-radius:50%;background:var(--accent);flex:none;animation:pulse 2.2s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(90,171,234,.6)}70%{box-shadow:0 0 0 12px rgba(90,171,234,0)}100%{box-shadow:0 0 0 0 rgba(90,171,234,0)}}
+.copy{margin-left:auto;flex:none;min-height:36px;font-size:11.5px;font-weight:700;letter-spacing:.1em;color:var(--accent);padding:7px 14px;border:1px solid rgba(90,171,234,.45);border-radius:100px;transition:all .25s}
+.copy:hover{background:#fff;border-color:#fff;color:#0A0A0A}
+footer{background:#0B1F33;border-top:1px solid var(--line2)}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;padding-top:30px;padding-bottom:30px;font-size:12.5px;color:var(--muted2)}
+footer a{color:var(--accent);font-weight:800;letter-spacing:.16em;font-size:11.5px}
+
+.quick{position:fixed;right:24px;bottom:24px;z-index:90;width:50px;height:50px;border-radius:50%;display:grid;place-items:center;background:rgba(7,17,27,.75);backdrop-filter:blur(10px);
+  border:1px solid rgba(90,171,234,.45);color:var(--accent);opacity:0;visibility:hidden;transform:translateY(12px);transition:all .35s var(--ease)}
+.quick.show{opacity:1;visibility:visible;transform:none}
+.quick:hover{background:#fff;color:#0A0A0A;border-color:#fff}
+.quick svg{width:18px;height:18px}
+
+/* MODAL */
+.modal{position:fixed;inset:0;z-index:200;display:none;background:rgba(2,6,10,.9);backdrop-filter:blur(10px);padding:32px;overflow-y:auto}
+.modal.open{display:block;animation:fade .3s var(--ease)}
+@keyframes fade{from{opacity:0}}
+@keyframes rise{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+.mbox{max-width:1060px;margin:0 auto;background:#0A1A2A;border:1px solid var(--line);border-radius:8px;overflow:hidden;animation:rise .42s var(--ease)}
+.mtop{display:flex;align-items:flex-start;gap:20px;padding:26px 32px;border-bottom:1px solid var(--line)}
+#mNo{font-size:11.5px;font-weight:800;letter-spacing:.2em;color:var(--accent)}
+#mTitle{font-size:26px;font-weight:800;margin:6px 0 4px}
+#mSub{font-size:14px;color:var(--soft);font-weight:600}
+.mx{margin-left:auto;flex:none;width:44px;height:44px;border-radius:50%;border:1px solid var(--line);color:var(--muted);font-size:17px;transition:all .3s var(--ease)}
+.mx:hover{background:#fff;color:#0A0A0A;transform:rotate(90deg)}
+.mstage{padding:28px 32px;background:#050C14}
+.vslot{position:relative;background:#000;border:1px solid var(--line);border-radius:4px;overflow:hidden;aspect-ratio:16/9;margin:0 auto;max-height:70vh}
+.vslot.v{aspect-ratio:9/16;width:auto;height:min(70vh,720px);max-width:100%}
+.vslot iframe,.vslot video{position:absolute;inset:0;width:100%;height:100%;border:0}
+.vslot img{width:100%;height:auto}
+.vslot.img{aspect-ratio:auto;max-height:none}
+.vslot.ig{aspect-ratio:auto;width:min(100%,420px);height:min(78vh,760px);max-height:none;background:#fff}
+.empty{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:20px;gap:8px}
+.vslot.img .empty{position:static;padding:80px 20px}
+.empty .n{font-size:11px;font-weight:800;letter-spacing:.2em;color:var(--accent)}
+.empty .f{font-size:13px;color:var(--muted)}
+.empty .d{font-size:12px;color:var(--muted2)}
+.empty a{color:var(--accent);font-weight:700}
+.minfo{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:22px;padding:24px 32px;border-top:1px solid var(--line2)}
+.mi-k{font-size:10.5px;font-weight:800;letter-spacing:.18em;color:var(--accent)}
+.mi-v{font-size:14px;color:var(--muted);margin-top:6px}
+.mdesc{padding:0 32px 4px;font-size:15px;color:var(--muted);line-height:1.9}
+.mfoot{display:flex;gap:10px;padding:22px 32px 28px;flex-wrap:wrap}
+.mfoot .btn{min-height:42px;padding:9px 20px;font-size:13px}
+
+.rv{opacity:0;transform:translateY(24px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+.rv.in{opacity:1;transform:none}
+
+@media (max-width:1080px){
+  .prof{grid-template-columns:minmax(0,1fr);gap:48px}
+  .id-card{position:static;display:grid;grid-template-columns:180px minmax(0,1fr);gap:24px;align-items:end}
+  .id-name{margin-top:0}
+  .ct{grid-template-columns:minmax(0,1fr);gap:40px}
+  .minfo{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (max-width:860px){
+  :root{--pad:22px}
+  .sec{padding:84px 0}
+  .nav-links{display:none}
+  .nav-links.show{display:flex;flex-direction:column;position:absolute;top:100%;left:0;right:0;gap:0;background:rgba(5,12,20,.97);padding:8px 22px 18px;border-top:1px solid var(--line2)}
+  .nav-links.show a{padding:14px 0;border-radius:0;border-bottom:1px solid var(--line2)}
+  .nav-toggle{display:block}
+  .nav-cta{display:none}
+  .hero{padding:110px 0 80px;min-height:auto}
+  .hero-scroll{display:none}
+  .pj,.pj:nth-child(even){grid-template-columns:minmax(0,1fr);gap:26px}
+  .pj:nth-child(even) .pj-media{order:0}
+  .proj{gap:64px}
+  .pj-no{font-size:52px}
+  .resume{margin-top:72px}
+  .panel{padding:30px 22px 36px}
+  .tab{padding:16px 12px;justify-content:center;text-align:center}
+  .tab b{font-size:14.5px}
+  .tab em{display:none}
+  .tl-i{grid-template-columns:minmax(0,1fr);gap:4px}
+  .edu{grid-template-columns:minmax(0,1fr);gap:36px}
+  .modal{padding:0}
+  .mbox{border-radius:0;border:0;min-height:100vh}
+  .mtop,.mstage,.minfo,.mfoot{padding-left:18px;padding-right:18px}
+  .mdesc{padding:0 18px}
+  #mTitle{font-size:21px}
+}
+@media (max-width:600px){
+  .id-card{grid-template-columns:minmax(0,1fr)}
+  .photo{max-width:200px}
+  .minfo{grid-template-columns:minmax(0,1fr)}
+  .ct-row{flex-wrap:wrap}
+  .ct-k{width:100%}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+  .rv{opacity:1;transform:none}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+
+<header id="hd">
+  <nav class="nav">
+    <a href="#top" class="brand"><i aria-hidden="true"></i>KIM BO KYUNG</a>
+    <button class="nav-toggle" id="navToggle" type="button" aria-label="메뉴 열기">MENU</button>
+    <div class="nav-links" id="navLinks">
+      <a href="#about">Profile</a><a href="#channel">Channel</a><a href="#work">Projects</a><a href="#archive">Archive</a><a href="#contact">Contact</a>
+    </div>
+    <a href="#contact" class="btn fill nav-cta">CONTACT ME</a>
+  </nav>
+</header>
+
+<section class="hero" id="top">
+  <div class="wrap hero-grid">
+    <div class="rv">
+      <p class="hero-k"><b>●</b>&nbsp; REC &nbsp;·&nbsp; PORTFOLIO 2021 — 2026</p>
+      <h1><span>VIDEO<span class="sl">/</span></span><span>CREATOR</span></h1>
+      <p class="hero-intro">촬영부터 편집까지, 카메라 앞뒤를 모두 맡습니다.</p>
+      <div class="hero-cta">
+        <a href="#work" class="btn fill">프로젝트 보기</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="strip" aria-hidden="true"><div id="strip"></div></div>
+
+<section class="sec" id="about">
+  <div class="wrap">
+    <div class="prof">
+      <aside class="id-card rv">
+        <div class="photo">
+          <img src="images/profile.jpg" alt="김보경 프로필 사진" loading="lazy" onerror="this.remove()">
+          <span class="vf-c tl"></span><span class="vf-c tr"></span><span class="vf-c bl"></span><span class="vf-c br"></span>
+          <p class="slot">PHOTO<b>images/profile.jpg</b></p>
+        </div>
+        <div>
+          <div class="id-name"><b>김보경</b><span>Kim Bo Kyung</span></div>
+          <dl class="id-meta">
+            <dt>BORN</dt><dd>1997.09.25</dd>
+            <dt>BASE</dt><dd>대구</dd>
+            <dt>MAIL</dt><dd><a id="metaMail" href="#contact"></a></dd>
+            <dt>ROLE</dt><dd>Video Editor · Motion Graphic</dd>
+          </dl>
+        </div>
+      </aside>
+
+      <div class="rv">
+        <span class="label">01 · Profile</span>
+        <p class="prof-lead">시각 디자인에서 출발해 <em>영상</em>으로.<br>기획부터 촬영, 편집, 업로드까지 <em>한 사람</em>이 끝까지 책임집니다.</p>
+        <p class="prof-sub">5년간 영상 편집 · 촬영 · 기획, 유튜브 채널 · 블로그 · 인스타그램 · 틱톡 운영을 해 왔습니다.<br>인물의 매력과 현장 분위기를 살리는 컷 편집, 상황에 웃음과 맥락을 더하는 자막과 효과음으로<br>브이로그부터 예능형 콘텐츠까지 끝까지 보게 되는 영상을 만듭니다.</p>
+
+        <div class="blk">
+          <span class="label">Skills</span>
+          <div class="skills" id="skills"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="resume rv">
+      <div class="tabs" role="tablist" aria-label="이력">
+        <button class="tab" role="tab" id="t-cover" aria-controls="p-cover" aria-selected="true"><b>자기소개서</b><em>Cover Letter</em></button>
+        <button class="tab" role="tab" id="t-career" aria-controls="p-career" aria-selected="false" tabindex="-1"><b>경력</b><em>Experience</em></button>
+        <button class="tab" role="tab" id="t-edu" aria-controls="p-edu" aria-selected="false" tabindex="-1"><b>학력 · 자격증</b><em>Education</em></button>
+      </div>
+
+      <div class="panel" role="tabpanel" id="p-cover" aria-labelledby="t-cover"><div class="doc">
+        <h4 class="doc-q"><span>01</span>성장과정 — “이 영상은 어떻게 찍고, 어떻게 편집한 걸까?”</h4>
+        <p>고등학생 시절부터 사진과 영상에 관심이 많았던 저는 용돈을 모아 중고 카메라를 구매했습니다. 촬영을 취미로 삼고 자연스레 영상물을 자주 접하다 보니 ‘이 영상은 어떻게 촬영해서, 어떤 방식으로 편집하는 걸까?’ 하는 궁금증이 생겼습니다.</p>
+        <p>하지만 영상은 독학만으로 배우기에 한계가 있었고, 영상 역시 디자인 요소를 포함하고 있어 그 기초가 없으면 만족할 만한 결과물이 나오지 않는다는 것을 알게 되었습니다. 대학생 시절 지인이 여는 일일 이벤트 카페의 리플렛 제작을 부탁받아, 디자인을 찾아보고 시도하며 첫 작품을 완성했고 큰 재미와 만족감을 느꼈습니다.</p>
+        <p>2020년에는 좋아하는 연예인의 생일 홍보 시안 모집에 도전해, 여러 작품 중 <strong>SNS 투표 1등으로 선정되어 지하철역에 게시</strong>되었습니다. 직접 만든 굿즈를 20개 소량 판매하기도 했습니다. 제가 만든 디자인이 광고로 걸리고, 제 굿즈를 구매한 분들이 만족하는 모습을 보며 더 잘하고 싶다는 마음이 커졌습니다.</p>
+        <p>이후 회사와 학원을 병행하며 포토샵 · 일러스트 등 시각 디자인 툴을 공부했고, 시각 디자이너로 먼저 취업했습니다. 직무에 포함된 영상 편집이 점점 더 재미있게 느껴져, 계약 만료 후 학원에서 <strong>프리미어 · 애프터이펙트, 모션그래픽 · 스크립트 · 익스프레션</strong>까지 심도 있게 학습했고, 촬영에 대한 이해가 필요하다고 느껴 촬영 수업도 수강했습니다.</p>
+        <h4 class="doc-q"><span>02</span>성격의 장단점 — 좋아하면 깊게 파고듭니다</h4>
+        <p>저의 가장 큰 장점은 무언가를 좋아하게 되면 <strong>깊게 파고드는 것</strong>입니다. 여기에 꼼꼼함이 더해져 결국 제 것으로 만들어 냅니다. 디자인과 영상을 잘 몰랐을 때도 기초적인 포토샵 · 프리미어로 친구 사진을 보정해 주거나 여행 영상을 만들어 주며 다양한 경험을 쌓았고, 이것이 지금의 디자인과 영상 작업에 큰 도움이 되었습니다.</p>
+        <p>반면 사소한 부분까지 신경 쓰여 끝까지 재수정하는 것은 단점이 되기도 합니다. ‘꼼꼼하다’, ‘리더십이 있다’, ‘야무지다’는 평을 들으며 회사 이전 후 새 프로젝트 제작을 맡았을 때, 제 기준에 맞추다 보니 시간이 꽤 걸리기도 했습니다. 지금은 <strong>큰 틀을 먼저 완성하고 세부를 조율하는 방식</strong>으로 융통성을 기르고 있습니다.</p>
+        <h4 class="doc-q"><span>03</span>입사 후 포부 — 필요한 사람이 되겠습니다</h4>
+        <p>기초를 탄탄히 다지고 심도 있는 기술까지 익힌 실력으로, 실무에서 회사가 필요로 하는 역량을 발휘하겠습니다. 이전 회사에서도 새로운 이벤트 · 콘텐츠 · 기획을 먼저 제안해 왔습니다. 창의적인 아이디어를 잊지 않되 제자리에 머물지 않고, 코딩이나 촬영처럼 접목할 수 있는 분야를 계속 공부하겠습니다.</p>
+        <p>콘텐츠 제작은 부서 내 소통과 협업이 무엇보다 중요하다고 생각합니다. 구성원들과 원활히 소통하며 다양한 의견을 수렴해 신속하고 정확하게 처리하고, 궁극적으로 클라이언트와 소비자에게 더 나은 콘텐츠를 선보이며 회사에 기여하겠습니다.</p>
+        <h4 class="doc-q"><span>04</span>경력기술서</h4>
+        <ul class="skl">
+          <li>After Effects를 활용한 2D 모션그래픽</li><li>Premiere Pro를 이용한 콘텐츠 제작</li>
+          <li>컬러그레이딩(색보정)</li>
+          <li>Photoshop · Illustrator를 이용한<br>편집 · 시각 디자인 및 사진 보정</li>
+        </ul>
+      </div></div>
+
+      <div class="panel" role="tabpanel" id="p-career" aria-labelledby="t-career" hidden>
+        <p class="sum">총 경력<strong>5년</strong></p>
+        <div class="tl">
+          <div class="tl-i now"><p class="tl-d">2022. 07 ~ 재직중<small>대구</small></p>
+            <div><p class="tl-c">피아노모아 <em>마케팅팀 · 주임</em></p><p class="tl-x">영상 편집 · 촬영 · 기획 / 쇼핑라이브 촬영 및 진행 / 유튜브 채널 관리 / 블로그 · 인스타그램 관리 / 사진 촬영</p></div></div>
+          <div class="tl-i"><p class="tl-d">2021. 05 ~ 2021. 11<small>7개월</small></p>
+            <div><p class="tl-c">플라낭 디자인 <em>사원</em></p><p class="tl-x">상세페이지 · 배너 · 포스터 · 굿즈 등 전반적인 디자인, 홈페이지 · 블로그 · SNS 관리, 사진 촬영, 유튜브 영상 편집 및 채널 관리</p></div></div>
+          <div class="tl-i"><p class="tl-d">2020. 02 ~ 2021. 03<small>1년 2개월</small></p>
+            <div><p class="tl-c">티나성형외과 피부관리실 <em>사원</em></p><p class="tl-x">레이저 어시스트 및 관리</p></div></div>
+          <div class="tl-i"><p class="tl-d">2018. 03 ~ 2019. 10<small>1년 8개월</small></p>
+            <div><p class="tl-c">bl성형외과피부과 피부관리실 <em>사원</em></p><p class="tl-x">피부관리</p></div></div>
+        </div>
+      </div>
+
+      <div class="panel" role="tabpanel" id="p-edu" aria-labelledby="t-edu" hidden>
+        <div class="edu">
+          <div>
+            <span class="label">Education</span>
+            <div class="lic" style="margin-top:14px"><div><b>계명문화대학교</b><small>뷰티코디네이션학부 졸업</small></div><span>2016.03 — 2018.02</span></div>
+          </div>
+          <div>
+            <span class="label">License</span>
+            <div style="margin-top:14px">
+              <div class="lic"><div><b>GTQ 포토샵 1급</b><small>한국생산성본부(KPC)</small></div><span>2021.03</span></div>
+              <div class="lic"><div><b>미용사(네일)</b><small>한국산업인력공단</small></div><span>2016.03</span></div>
+              <div class="lic"><div><b>미용사(피부)</b><small>한국산업인력공단</small></div><span>2015.10</span></div>
+              <div class="lic"><div><b>헤나 2급</b><small>한국헤나협회</small></div><span>2015.05</span></div>
+              <div class="lic"><div><b>예술분장사 1급</b><small>(사)한국미용문화사연구협회</small></div><span>2015.05</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec channel" id="channel">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div><span class="label">02 · Channel Growth</span><h2 class="sec-title">YOUTUBE CHANNEL</h2></div>
+      <p class="ch-sub">피아노모아 공식 유튜브<br>기획 · 촬영 · 편집 · 업로드 · 채널 운영</p>
+    </div>
+
+    <div class="ch-hero rv">
+      <p class="ch-big"><span>0</span><i aria-hidden="true">→</i><b>250,000</b></p>
+      <p class="ch-cap">5년 만에 구독자 0명에서 <strong>25만 구독자</strong> 채널로 성장</p>
+    </div>
+
+    <div class="ch-stats rv" id="chStats"></div>
+
+    <div class="ch-grid">
+      <div class="ch-card rv">
+        <span class="label">Subscribers</span>
+        <h3 class="ch-h">구독자 추이</h3>
+        <div class="ch-bars" id="chBars"></div>
+      </div>
+      <div class="ch-card rv">
+        <span class="label">Milestones</span>
+        <h3 class="ch-h">주요 성장 과정</h3>
+        <ol class="ch-tl" id="chTl"></ol>
+      </div>
+    </div>
+
+    <div class="ch-role rv">
+      <span class="label">Role</span>
+      <div class="pj-cat ch-cat" id="chRole"></div>
+    </div>
+
+    <div class="rv">
+      <span class="label">Featured Videos</span>
+      <div class="ch-vids" id="chVids"></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="work">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div><span class="label">03 · Selected Work</span><h2 class="sec-title">PROJECTS</h2></div>
+    </div>
+    <div class="proj" id="proj"></div>
+  </div>
+</section>
+
+<section class="sec" id="archive" style="background:var(--deep)">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div><span class="label">04 · Video &amp; Design</span><h2 class="sec-title">ARCHIVE</h2></div>
+    </div>
+    <div class="filters rv" id="filters" role="toolbar" aria-label="작업물 분류"></div>
+    <div class="masonry" id="masonry"></div>
+  </div>
+</section>
+
+<section class="sec contact" id="contact">
+  <div class="wrap ct">
+    <div class="rv">
+      <span class="label">05 · Contact</span>
+      <h2>LET'S MAKE<br>IT <em>ROLL.</em></h2>
+    </div>
+    <div class="ct-list rv" id="ctList"></div>
+  </div>
+</section>
+
+<footer><div class="wrap"><span>© 2026 Kim Bo Kyung · Video Creator</span><a href="#top">BACK TO TOP ↑</a></div></footer>
+
+<button class="quick" id="quick" type="button" aria-label="맨 위로"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5"/><path d="m5 12 7-7 7 7"/></svg></button>
+
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="mTitle">
+  <div class="mbox">
+    <div class="mtop"><div><div id="mNo"></div><h3 id="mTitle"></h3><p id="mSub"></p></div><button class="mx" id="mClose" type="button" aria-label="닫기">✕</button></div>
+    <div class="mstage" id="mStage"></div>
+    <div class="minfo" id="mInfo"></div>
+    <p class="mdesc" id="mDesc"></p>
+    <div class="mfoot"><button class="btn" id="mPrev" type="button">‹ 이전</button><button class="btn" id="mNext" type="button">다음 ›</button><button class="btn" id="mCloseB" type="button" style="margin-left:auto">닫기</button></div>
+  </div>
+</div>
+
+<script>
+{
+const CONTACT = { email:'qhrud8757@naver.com', phone:'010-2627-8377', status:'피아노모아 마케팅팀 재직 중 · 협의 후 이직 가능' };
+
+const SKILLS = [
+  ['주력', ['Premiere Pro','After Effects','Photoshop','Lightroom']],
+  ['활용', ['Illustrator','Clip Studio','Audition','Cubase']]
+];
+
+/* videos : 프로젝트에 들어갈 영상 목록 (순서대로)
+   yt = 유튜브 영상 ID (youtu.be/ 뒤 11자리) · ig = 인스타그램 'p/코드' 또는 'reel/코드' · link = 바로가기 주소 · title = 팝업에 보일 제목 */
+const PROJECTS = [
+  { no:'01', title:'PRODUCT FILM', sub:'브랜드 광고 · 인터뷰 · 사용 가이드', folder:'images/02-product', vertical:false, fmt:'16:9',
+    videos:[{yt:'3rJawsAQGOA',title:'제품 영상 01'},{yt:'niRMybiIWh0',title:'제품 영상 02'},{yt:'bKYO9O6qrG8',title:'제품 영상 03'},{yt:'IJKFBqraWp0',title:'제품 영상 04'},{yt:'GcJLkvS_Mjw',title:'제품 영상 05'},{yt:'O9vAgBgokdI',title:'제품 영상 06'}],
+    items:[['제품 고급화 광고','조명과 컬러그레이딩으로\n제품의 질감과 프리미엄 무드를 표현'],['인터뷰 영상','인물 촬영과 스토리 중심의 구성'],['사용법 가이드 영상','제품의 기능을 직관적으로 전달']],
+    info:[['CLIENT','피아노모아'],['TYPE','Product Film'],['ROLE','촬영 · 편집 · 색보정'],['YEAR','2022 —']],
+    desc:'같은 제품도 목적에 따라 다르게 보여줍니다. 브랜드 가치를 높이는 광고, 신뢰를 주는 인터뷰, 이해를 돕는 사용 가이드까지 목적별 영상을 제작합니다.' },
+  { no:'02', title:'SHORT-FORM', sub:'외주 제작 · 트렌드 숏폼 기획 · 촬영 · 편집', folder:'images/03-short', vertical:true, fmt:'9:16',
+    videos:[{ig:'p/Dc-JDVwBAe_',title:'숏폼 작업물 01'},{ig:'reel/DdqaDXuS2XW',title:'숏폼 작업물 02'},{ig:'reel/DfZIO__Soim',title:'숏폼 작업물 03'}],
+    items:[['트렌드 리서치','유행 콘텐츠를 리서치하고 촬영 방향 설정'],['촬영 · 편집 제작','기획한 콘텐츠의 촬영부터 편집까지 직접 제작']],
+    info:[['CLIENT','외주'],['TYPE','Short-form'],['ROLE','기획 회의 · 촬영 · 편집'],['FORMAT','9:16 · 1080×1920']],
+    desc:'외주로 진행한 숏폼 작업입니다. 요즘 유행하는 콘텐츠를 회의로 함께 정하고, 촬영부터 편집까지 직접 제작했습니다.' },
+  { no:'03', title:'LIVE COMMERCE', sub:'네이버 쇼핑라이브 · 카메라 · 송출 엔지니어', folder:'images/04-live', vertical:true, fmt:'LIVE',
+    videos:[{link:'https://naver.me/FWTpR49j',title:'네이버 쇼핑라이브 다시보기',label:'네이버 쇼핑라이브에서 보기'}],
+    items:[['카메라 운용','라이브 방송 카메라 세팅 및 운용'],['송출 프로그램 제어','방송 화면과 진행 흐름 관리']],
+    info:[['CLIENT','피아노모아'],['TYPE','Live Commerce'],['ROLE','카메라 · 송출 엔지니어'],['YEAR','2022 —']],
+    desc:'라이브가 끊김 없이 진행되도록 카메라와 송출 프로그램을 제어하는 엔지니어로 방송을 맡았습니다.' }
+];
+
+/* ratio : r-v(세로 9:16) / r-w(가로 16:9) / r-pg(상세페이지) / r-p(포스터) / r-s(정사각), img:true = 이미지 작업물 */
+const KINDS = [['yt','유튜브'],['short','숏폼'],['product','제품 영상'],['design','디자인']];
+const ARCHIVE = [
+  {kind:'yt', client:'피아노모아', year:'', name:'유튜브 영상 01', note:'YouTube', ratio:'r-w', yt:'TpDlXYuwnf4'},
+  {kind:'yt', client:'피아노모아', year:'', name:'유튜브 영상 02', note:'YouTube', ratio:'r-w', yt:'8p3F3sB80yI'},
+  {kind:'yt', client:'피아노모아', year:'', name:'유튜브 영상 03', note:'YouTube', ratio:'r-w', yt:'UC1hLtF0qYw'},
+  {kind:'yt', client:'피아노모아', year:'', name:'유튜브 영상 04', note:'YouTube', ratio:'r-w', yt:'2vdKefd7KWY'},
+  {kind:'yt', client:'피아노모아', year:'', name:'유튜브 영상 05', note:'YouTube', ratio:'r-w', yt:'Cy6HOdWqlsY'},
+  {kind:'yt', client:'피아노모아', year:'', name:'유튜브 영상 06', note:'YouTube', ratio:'r-w', yt:'sxi8V-knw08'},
+  {kind:'short', client:'피아노모아', year:'', name:'유튜브 쇼츠 01', note:'YouTube Shorts', ratio:'r-v', yt:'WYC9hvBt4_Q'},
+  {kind:'short', client:'피아노모아', year:'', name:'유튜브 쇼츠 02', note:'YouTube Shorts', ratio:'r-v', yt:'Lmp0BlVxTLE'},
+  {kind:'short', client:'외주', year:'', name:'숏폼 작업물 01', note:'Instagram', ratio:'r-v', ig:'p/Dc-JDVwBAe_'},
+  {kind:'short', client:'외주', year:'', name:'숏폼 작업물 02', note:'Instagram Reels', ratio:'r-v', ig:'reel/DdqaDXuS2XW'},
+  {kind:'short', client:'외주', year:'', name:'숏폼 작업물 03', note:'Instagram Reels', ratio:'r-v', ig:'reel/DfZIO__Soim'},
+  {kind:'product', client:'피아노모아', year:'', name:'제품 영상 01', note:'YouTube', ratio:'r-w', yt:'3rJawsAQGOA'},
+  {kind:'product', client:'피아노모아', year:'', name:'제품 영상 02', note:'YouTube', ratio:'r-w', yt:'niRMybiIWh0'},
+  {kind:'product', client:'피아노모아', year:'', name:'제품 영상 03', note:'YouTube', ratio:'r-w', yt:'bKYO9O6qrG8'},
+  {kind:'product', client:'피아노모아', year:'', name:'제품 영상 04', note:'YouTube', ratio:'r-w', yt:'IJKFBqraWp0'},
+  {kind:'product', client:'피아노모아', year:'', name:'제품 영상 05', note:'YouTube', ratio:'r-w', yt:'GcJLkvS_Mjw'},
+  {kind:'product', client:'피아노모아', year:'', name:'제품 영상 06', note:'YouTube', ratio:'r-w', yt:'O9vAgBgokdI'},
+  {kind:'design', client:'플라낭 디자인', year:'2021', name:'상세페이지', note:'웹 상세페이지', ratio:'r-pg', folder:'images/arc/design-01', img:true},
+  {kind:'design', client:'플라낭 디자인', year:'2021', name:'포스터', note:'인쇄물', ratio:'r-p', folder:'images/arc/design-02', img:true},
+  {kind:'design', client:'플라낭 디자인', year:'2021', name:'배너', note:'웹 배너', ratio:'r-w', folder:'images/arc/design-03', img:true},
+  {kind:'design', client:'개인 작업', year:'2020', name:'생일 홍보 지하철 광고', note:'SNS 투표 1위 선정 · 지하철역 게시', ratio:'r-w', folder:'images/arc/design-04', img:true}
+];
+
+const $ = id => document.getElementById(id);
+const esc = s => String(s ?? '').replace(/[&<>"']/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
+const framed = (()=>{ try{ return window.self !== window.top }catch(e){ return true } })();
+const play = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>';
+const zoom = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>';
+const cleanId = x => String(x||'').replace(/[^\w-]/g,'');
+const igPath = x => String(x||'').replace(/[^\w\/-]/g,'');
+const thumb = (o, alt) => o.yt ? `<img src="https://i.ytimg.com/vi/${cleanId(o.yt)}/${o.ratio==='r-v'?'oardefault':'hqdefault'}.jpg" alt="${esc(alt)}" loading="lazy" onerror="if(this.src.includes('oardefault')){this.src=this.src.replace('oardefault','hqdefault')}else{this.style.display='none';if(this.nextElementSibling)this.nextElementSibling.style.display='grid'}">` : img(o.folder||'images/thumb', alt);
+const slotTxt = o => o.yt ? 'YOUTUBE' : o.ig ? 'INSTAGRAM' : o.link ? 'SHOPPING LIVE' : 'THUMBNAIL';
+const img = (f, alt) => `<img src="${esc(f)}/thumb.jpg" alt="${esc(alt)}" loading="lazy" onerror="this.style.display='none';if(this.nextElementSibling)this.nextElementSibling.style.display='grid'">`;
+
+/* 띠 · 타임코드 */
+const words = ['VIDEO EDIT','<b>●</b>','SHOOTING','<b>●</b>','MOTION GRAPHIC','<b>●</b>','COLOR GRADING','<b>●</b>','SHOPPING LIVE','<b>●</b>','YOUTUBE','<b>●</b>','SHORT-FORM','<b>●</b>'];
+$('strip').innerHTML = [...words, ...words].map(w=>`<span>${w}</span>`).join('');
+
+/* 프로필 */
+$('metaMail').textContent = CONTACT.email; $('metaMail').href = 'mailto:' + CONTACT.email;
+$('skills').innerHTML = SKILLS.map(([k,arr])=>`<div class="sk-row"><span class="sk-k">${esc(k)}</span><div class="sk-list">${arr.map(t=>`<span>${esc(t)}</span>`).join('')}</div></div>`).join('');
+
+/* 이력 탭 */
+const tabs = [...document.querySelectorAll('.tab')];
+function sel(t){ tabs.forEach(x=>{ const on = x===t; x.setAttribute('aria-selected', on); x.tabIndex = on?0:-1; $(x.getAttribute('aria-controls')).hidden = !on; }); }
+tabs.forEach((t,i)=>{ t.addEventListener('click', ()=>sel(t)); t.addEventListener('keydown', e=>{
+  const d = e.key==='ArrowRight'?1:e.key==='ArrowLeft'?-1:0; if(!d) return; const n = tabs[(i+d+tabs.length)%tabs.length]; sel(n); n.focus(); }); });
+
+/* ── 유튜브 채널 ── 숫자는 면담 자료 기준,  */
+const CH_STATS = [
+  ['25','만','구독자','채널 개설 5년, 0명에서 시작'],
+  ['5,800','만','단일 영상 최고 조회수',''],
+  ['275','%','1년간 구독자 증가','6.5만 → 24만 (2025.7 → 2026.7)'],
+  ['11','배','채널 조회수 수익 증가','월 평균 약 30만 원 → 약 330만 원']
+];
+const CH_BARS = [['2024.06',1],['2025.07',6.5],['2026.07',24],['현재',25]];
+const CH_TL = [
+  ['2024.07 — 2025.06','1년간 구독자 약 2만 명 증가, 3만 구독자 달성',''],
+  ['2025','150만 조회 영상 제작','TV 프로그램 출연 및 제품 노출로 이어짐'],
+  ['2025.07','700만 조회 영상으로 채널 급성장','채널 조회수 3,000% 증가 · 6만 구독자 돌파'],
+  ['2025.07 — 2026.07','구독자 약 18만 명 증가','단일 영상 최대 5,800만 조회 · 조회수 수익 월 최고 600만 원'],
+  ['NOW','구독자 25만 채널','']
+];
+const CH_ROLE = [
+  ['기획 · 촬영 · 편집','트렌드에 맞춘 빠른 기획과 정기적인 콘텐츠 제작 · 업로드'],
+  ['채널 운영 관리','썸네일 · 제목 패키징과 업로드 일정 등 채널 운영 전반'],
+  ['브랜드 마케팅','콘텐츠를 통한 간접 마케팅과 브랜드 인지도 향상, 외부 협업 확장']
+];
+/* 대표 영상 (쇼츠) : yt 에 유튜브 영상 ID
+   · 실제 사이트에서는 소리 없이 자동 반복 재생, 누르면 소리 있는 플레이어가 열립니다
+   · src 에 영상 파일(mp4) 경로를 넣으면 그 파일로 자동 재생합니다 (예: src:'images/channel/short-01.mp4') */
+const CH_VIDS = [
+  {title:'최고 조회수 영상', views:'5,800만 회', yt:'FB_J2MVtK94'},
+  {title:'채널 급성장 영상', views:'1,600만 회', yt:'ew7NvtrMCvE'},
+  {title:'TV 출연으로 이어진 영상', views:'400만 회', yt:'XLOXye2Pi4I'}
+];
+$('chStats').innerHTML = CH_STATS.map(([n,u,l,d])=>`<div class="ch-stat"><b>${esc(n)}<small>${esc(u)}</small></b><p>${esc(l)}</p>${d?`<span>${esc(d)}</span>`:''}</div>`).join('');
+const chMax = Math.max(...CH_BARS.map(b=>b[1]));
+$('chBars').innerHTML = CH_BARS.map(([d,v],i)=>`<div class="cb${i===CH_BARS.length-1?' now':''}"><span class="cb-d">${esc(d)}</span><span class="cb-t"><i style="--w:${Math.max(3,v/chMax*100)}%"></i></span><span class="cb-v">${v}만</span></div>`).join('');
+$('chTl').innerHTML = CH_TL.map(([d,t,x])=>`<li><b>${esc(d)}</b><p>${esc(t)}${x?`<span>${esc(x)}</span>`:''}</p></li>`).join('');
+$('chRole').innerHTML = CH_ROLE.map(([t,d])=>`<div><b>${esc(t)}</b><p>${esc(d)}</p></div>`).join('');
+$('chVids').innerHTML = CH_VIDS.map((v,i)=>`<button type="button" class="ch-v" data-v="${i}" aria-label="${esc(v.title)} 보기"><span class="ch-vt"><img src="https://i.ytimg.com/vi/${esc(v.yt)}/oardefault.jpg" alt="" loading="lazy" onerror="if(!this.dataset.f){this.dataset.f=1;this.src=this.src.replace('oardefault','hqdefault')}else{this.remove()}"><span class="views">${esc(v.views)}</span><span class="play">${play}</span></span><span class="ch-vn">${esc(v.title)}</span></button>`).join('');
+document.querySelectorAll('#chVids .ch-v').forEach((el,i)=>{
+  const v = CH_VIDS[i], box = el.querySelector('.ch-vt'), id = String(v.yt||'').replace(/[^\w-]/g,'');
+  let m = '';
+  if(v.src) m = `<video src="${esc(v.src)}" autoplay muted loop playsinline preload="metadata" aria-hidden="true"></video>`;
+  else if(id && !framed) m = `<iframe src="https://www.youtube-nocookie.com/embed/${id}?autoplay=1&mute=1&loop=1&playlist=${id}&controls=0&playsinline=1&rel=0&modestbranding=1" title="${esc(v.title)}" loading="lazy" allow="autoplay; encrypted-media" tabindex="-1"></iframe>`;
+  if(m){ box.insertAdjacentHTML('afterbegin', m); box.classList.add('live'); }
+});
+
+/* 프로젝트 */
+$('proj').innerHTML = PROJECTS.map((p,i)=>`
+  <article class="pj rv">
+    <button type="button" class="pj-media" data-i="${i}" aria-label="${esc(p.title)} 영상 보기">${p.videos[0].yt ? thumb(p.videos[0],p.title) : img(p.folder,p.title)}<span class="slot">${slotTxt(p.videos[0])}<b>${p.videos[0].yt ? 'YouTube 썸네일' : esc(p.folder)+'/thumb.jpg'}</b></span>
+      <span class="pj-fmt">${esc(p.fmt)}${p.videos.length>1?` · 영상 ${p.videos.length}개`:''}</span><span class="play">${play}</span></button>
+    <div>
+      <p class="pj-no">${esc(p.no)}</p>
+      <h3 class="pj-t">${esc(p.title)}</h3>
+      <p class="pj-s">${esc(p.sub)}</p>
+      ${p.items ? `<div class="pj-cat">${p.items.map(([t,d])=>`<div><b>${esc(t)}</b><p>${esc(d)}</p></div>`).join('')}</div>` : `<ul class="pj-l">${p.lines.map(l=>`<li>${esc(l)}</li>`).join('')}</ul>`}
+      <button type="button" class="btn" data-i="${i}">${p.videos.length>1?`영상 ${p.videos.length}개 보기`:'영상 보기'} →</button>
+    </div>
+  </article>`).join('');
+
+/* 아카이브 */
+let kind = KINDS[0][0];
+function drawArc(){
+  $('filters').innerHTML = KINDS.map(([k,n])=>`<button type="button" data-k="${k}" aria-pressed="${k===kind}">${n}<span>${ARCHIVE.filter(w=>w.kind===k).length}</span></button>`).join('');
+  $('masonry').innerHTML = ARCHIVE.map((w,i)=>({w,i})).filter(({w})=>kind==='all'||w.kind===kind).map(({w,i},n)=>`
+    <button type="button" class="gx" data-a="${i}" style="animation-delay:${Math.min(n,8)*40}ms">
+      <div class="gx-t ${esc(w.ratio)}">${thumb(w,w.name)}<p class="slot">${slotTxt(w)}${w.yt||w.ig ? '' : `<b>${esc(w.folder)}/thumb.jpg</b>`}</p><span class="ico">${w.img?zoom:play}</span></div>
+      <div class="gx-c"><p class="gx-m">${esc(w.client)}${w.year?`<span>${esc(w.year)}</span>`:''}</p><p class="gx-n">${esc(w.name)}</p><p class="gx-d">${esc(w.note)}</p></div>
+    </button>`).join('');
+}
+drawArc();
+$('filters').addEventListener('click', e=>{ const b = e.target.closest('button'); if(!b) return; kind = b.dataset.k; drawArc(); });
+
+/* 연락처 */
+$('ctList').innerHTML = `
+  <div class="ct-row"><span class="ct-k">EMAIL</span><a class="ct-v" href="mailto:${esc(CONTACT.email)}">${esc(CONTACT.email)}</a><button class="copy" type="button" data-copy="${esc(CONTACT.email)}">COPY</button></div>
+  <div class="ct-row"><span class="ct-k">PHONE</span><a class="ct-v" href="tel:${esc(CONTACT.phone.replace(/\D/g,''))}">${esc(CONTACT.phone)}</a><button class="copy" type="button" data-copy="${esc(CONTACT.phone)}">COPY</button></div>
+  <div class="ct-row"><span class="ct-k">STATUS</span><span class="ct-v s"><i class="dot"></i>${esc(CONTACT.status)}</span></div>`;
+$('ctList').addEventListener('click', async e=>{ const b = e.target.closest('.copy'); if(!b) return;
+  try{ await navigator.clipboard.writeText(b.dataset.copy); b.textContent='COPIED'; }catch(err){ b.textContent='직접 선택해 주세요'; }
+  setTimeout(()=> b.textContent='COPY', 1600); });
+
+/* 팝업 */
+let list = PROJECTS, cur = 0;
+const fromArc = w => ({ no:(KINDS.find(k=>k[0]===w.kind)||[,''])[1], title:w.name, sub:w.year?`${w.client} · ${w.year}`:w.client, folder:w.folder, yt:w.yt, ig:w.ig, link:w.link, video:w.video, img:w.img,
+  vertical:w.ratio==='r-v', info:[['CLIENT',w.client],['FORMAT',w.note]].concat(w.year?[['YEAR',w.year]]:[]), desc:'' });
+const fromProj = p => p.videos.map((v,k)=>({ no:`${p.title}${p.videos.length>1?` · ${k+1} / ${p.videos.length}`:''}`, title:v.title, sub:p.sub, yt:v.yt, ig:v.ig, link:v.link, label:v.label, vertical:p.vertical, info:p.info, desc:p.desc }));
+function render(){
+  const p = list[cur], id = String(p.yt||'').replace(/[^\w-]/g,''), v = p.vertical ? ' v' : '';
+  $('mNo').textContent = p.no; $('mTitle').textContent = p.title; $('mSub').textContent = p.sub;
+  $('mInfo').innerHTML = p.info.map(([k,val])=>`<div><p class="mi-k">${esc(k)}</p><p class="mi-v">${esc(val)}</p></div>`).join('');
+  $('mDesc').textContent = p.desc || ''; $('mDesc').hidden = !p.desc;
+  let h;
+  if(p.img) h = `<div class="vslot img"><img src="${esc(p.folder)}/01.jpg" alt="${esc(p.title)}" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="empty" style="display:none"><p class="n">IMAGE</p><p class="f">${esc(p.folder)}/01.jpg</p><p class="d">이 경로에 이미지를 저장하면 표시됩니다</p></div></div>`;
+  else if(p.link) h = `<div class="vslot"><div class="empty"><p class="n">LINK</p><p class="f">${esc(p.title)}</p><a href="${esc(p.link)}" target="_blank" rel="noopener">${esc(p.label||'바로가기')} →</a></div></div>`;
+  else if(p.ig && !framed) h = `<div class="vslot ig"><iframe src="https://www.instagram.com/${igPath(p.ig)}/embed/" title="${esc(p.title)}" allowfullscreen loading="lazy"></iframe></div>`;
+  else if(p.ig) h = `<div class="vslot v"><div class="empty"><p class="n">INSTAGRAM</p><p class="f">미리보기 화면에서는 재생되지 않아요</p><a href="https://www.instagram.com/${igPath(p.ig)}/" target="_blank" rel="noopener">Instagram에서 보기 →</a></div></div>`;
+  else if(id && !framed) h = `<div class="vslot${v}"><iframe src="https://www.youtube-nocookie.com/embed/${id}?rel=0" title="${esc(p.title)}" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe></div>`;
+  else if(id) h = `<div class="vslot${v}"><div class="empty"><p class="n">YOUTUBE</p><p class="f">미리보기 화면에서는 재생되지 않아요</p><a href="https://youtu.be/${id}" target="_blank" rel="noopener">YouTube에서 보기 →</a></div></div>`;
+  else if(p.video) h = `<div class="vslot${v}"><video src="${esc(p.video)}" controls playsinline preload="metadata"></video></div>`;
+  else h = `<div class="vslot${v}"><div class="empty"><p class="n">VIDEO</p><p class="f">유튜브 영상 ID(yt) 또는 영상 파일(video)을 넣으면 재생됩니다</p><p class="d">${esc(p.folder)}</p></div></div>`;
+  $('mStage').innerHTML = h;
+  $('mPrev').hidden = $('mNext').hidden = list.length < 2;
+}
+function openM(l, i){ list = l; cur = i; render(); $('modal').classList.add('open'); document.body.classList.add('lock'); $('mClose').focus(); }
+function closeM(){ $('modal').classList.remove('open'); document.body.classList.remove('lock'); $('mStage').innerHTML = ''; }
+const step = d => { cur = (cur + d + list.length) % list.length; render(); };
+$('chVids').addEventListener('click', e=>{ const b = e.target.closest('.ch-v'); if(!b) return;
+  openM(CH_VIDS.map(v=>({no:'YOUTUBE SHORTS', title:v.title, sub:`피아노모아 공식 유튜브 · 조회수 ${v.views}`, folder:'', yt:v.yt, vertical:true, info:[['CHANNEL','피아노모아'],['VIEWS',v.views],['ROLE','기획 · 촬영 · 편집']], desc:''})), +b.dataset.v); });
+$('proj').addEventListener('click', e=>{ const b = e.target.closest('[data-i]'); if(b) openM(fromProj(PROJECTS[+b.dataset.i]), 0); });
+$('masonry').addEventListener('click', e=>{ const b = e.target.closest('.gx'); if(!b) return;
+  const w = ARCHIVE[+b.dataset.a], l = ARCHIVE.filter(x=>kind==='all'||x.kind===kind); openM(l.map(fromArc), l.indexOf(w)); });
+$('mClose').onclick = $('mCloseB').onclick = closeM; $('mPrev').onclick = ()=>step(-1); $('mNext').onclick = ()=>step(1);
+$('modal').addEventListener('click', e=>{ if(e.target === $('modal')) closeM(); });
+document.addEventListener('keydown', e=>{ if(!$('modal').classList.contains('open')) return;
+  if(e.key==='Escape') closeM(); if(e.key==='ArrowLeft') step(-1); if(e.key==='ArrowRight') step(1); });
+
+/* 헤더 · 메뉴 · 맨 위로 · 등장 효과 */
+const hd = $('hd'), quick = $('quick'), links = $('navLinks');
+const onS = () => { hd.classList.toggle('stuck', scrollY > 30); quick.classList.toggle('show', scrollY > 700); };
+addEventListener('scroll', onS, {passive:true}); onS();
+quick.onclick = () => scrollTo({top:0, behavior:'smooth'});
+$('navToggle').onclick = () => links.classList.toggle('show');
+links.addEventListener('click', ()=> links.classList.remove('show'));
+const io = new IntersectionObserver(es => es.forEach(en => { if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); } }), {threshold:.1});
+document.querySelectorAll('.rv').forEach(el => io.observe(el));
+}
+</script>
+</body>
+</html>
